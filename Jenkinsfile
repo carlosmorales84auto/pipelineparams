@@ -1,6 +1,7 @@
 pipeline {//Declarative Syntax 
 
-    agent any
+    //agent any
+      agent { label 'slaves' }
     tools {
         maven 'LocalMaven' 
     }
