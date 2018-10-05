@@ -3,10 +3,10 @@ pipeline {//Declarative Syntax
     //agent any
     agent { label 'Carlos' }
 	//agent { node { label 'Carlos' } }
-    tools {
-        maven 'LocalMaven' 
-    }
-	 options {
+   // tools {
+   //     maven 'LocalMaven' 
+   // }
+    options {
         timeout(time: 3, unit: 'MINUTES') //tiempo maximo de ejecucion del pipeline
     }
 	environment { 
