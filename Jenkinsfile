@@ -1,8 +1,8 @@
 pipeline {//Declarative Syntax 
 
     //agent any
-    //agent { label 'Carlos' }
-	agent { node { label 'Carlos' } }
+    agent { label 'Carlos' }
+	//agent { node { label 'Carlos' } }
     tools {
         maven 'LocalMaven' 
     }
