@@ -16,8 +16,9 @@ pipeline {//Declarative Syntax
 	stage('Smartphone') {
             steps {
 		script {
-
+			echo "Before checkout report"
 			git url: 'ssh://git@gitlab.awadserver.com:2222/esteban.berduo/combos_combinados.git'				
+			echo "After checkout report"
 			bat "git checkout CIFactory2" 
 			bat "git pull"
 			bat "mvn clean test -DDevicename=${IDS}"									     															
