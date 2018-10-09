@@ -18,7 +18,10 @@ pipeline {//Declarative Syntax
 	stage('1') {
             steps {
 		script {
-			echo 'Before smartphone'											     															
+			echo 'Before smartphone'
+			if("${Nodo}" == "CarlosMac"){
+				echo 'corriendo en la mac'
+			}
 		}
             }
         }	    
