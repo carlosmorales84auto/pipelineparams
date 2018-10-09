@@ -4,9 +4,9 @@ pipeline {//Declarative Syntax
     //agent { label 'Carlos' }
 	agent { node { label "${Nodo}" } }
 	//agent { node { label 'CarlosMac' } }
-    //tools {
-    //    maven 'LocalMaven' 
-    //}
+    tools {
+        maven 'LocalMaven' 
+    }
     options {
         timeout(time: 3, unit: 'MINUTES') //tiempo maximo de ejecucion del pipeline
     }
