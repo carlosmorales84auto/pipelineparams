@@ -35,7 +35,8 @@ pipeline {//Declarative Syntax
 				sh '''
 				    git checkout CIFactory2
 				    git pull
-				    mvn clean test -DDevicename=${IDS}
+				    mvn -version
+				    mvn clean test -DDevicename=${IDS}				    
 				'''
 				echo 'termina corriendo en la mac'
 			}else{			
