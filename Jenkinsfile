@@ -31,12 +31,12 @@ pipeline {//Declarative Syntax
 			echo "After checkout report"
 			
 			if("${Nodo}" == "CarlosMac"){
-				echo 'corriendo en la mac'
-				         bash '''#!/bin/bash
-						 git checkout CIFactory2
-						 git pull
-						 mvn clean test -DDevicename=${IDS}
-					 '''
+				echo 'corriendo en la mac'			
+				sh '''
+				    git checkout CIFactory2
+				    git pull
+				    mvn clean test -DDevicename=${IDS}
+				'''
 				echo 'termina corriendo en la mac'
 			}else{			
 				bat "git checkout CIFactory2" 
