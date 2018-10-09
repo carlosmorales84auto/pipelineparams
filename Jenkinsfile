@@ -19,9 +19,6 @@ pipeline {//Declarative Syntax
             steps {
 		script {
 			echo 'Before smartphone'
-			if("${Nodo}" == "CarlosMac"){
-				echo 'corriendo en la mac'
-			}
 		}
             }
         }	    
@@ -32,9 +29,20 @@ pipeline {//Declarative Syntax
 			echo 'Before checkout report'
 			git url: 'ssh://git@gitlab.awadserver.com:2222/esteban.berduo/combos_combinados.git'				
 			echo "After checkout report"
-			bat "git checkout CIFactory2" 
-			bat "git pull"
-			bat "mvn clean test -DDevicename=${IDS}"									     															
+			
+			if("${Nodo}" == "CarlosMac"){
+				echo 'corriendo en la mac'
+				         bash '''#!/bin/bash
+						 git checkout CIFactory2
+						 git pull
+						 mvn clean test -DDevicename=${IDS}
+					 '''
+				echo 'termina corriendo en la mac'
+			}else{			
+				bat "git checkout CIFactory2" 
+				bat "git pull"
+				bat "mvn clean test -DDevicename=${IDS}"
+			}
 		}
             }
         }
