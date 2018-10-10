@@ -13,16 +13,7 @@ pipeline {//Declarative Syntax
 	environment { 
         VarGlobal = 'soy una variable global'
     }	
-    stages {
-	    
-	stage('1') {
-            steps {
-		script {
-			echo 'Before smartphone'
-		}
-            }
-        }	    
-	    
+    stages {	    	  
 	stage('Smartphone') {
             steps {
 		script {
