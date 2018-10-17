@@ -24,15 +24,11 @@ pipeline {//Declarative Syntax
 			if("${Nodo}" == "CarlosMac"){
 				echo 'corriendo en la mac'			
 				sh '''
-				    git checkout master
-				    git pull
 				    mvn -version
 				    mvn clean test -DDevicename=${IDS}				    
 				'''
 				echo 'termina corriendo en la mac'
 			}else{			
-				bat "git checkout master" 
-				bat "git pull"
 				bat "mvn clean test -DDevicename=${IDS}"
 			}
 		}
