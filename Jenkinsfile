@@ -8,7 +8,7 @@ pipeline {//Declarative Syntax
        // maven 'LocalMaven' 
     //}
     options {
-        timeout(time: 3, unit: 'MINUTES') //tiempo maximo de ejecucion del pipeline
+        timeout(time: 10, unit: 'MINUTES') //tiempo maximo de ejecucion del pipeline
     }
 	environment { 
         VarGlobal = 'soy una variable global'
@@ -24,14 +24,14 @@ pipeline {//Declarative Syntax
 			if("${Nodo}" == "CarlosMac"){
 				echo 'corriendo en la mac'			
 				sh '''
-				    git checkout CIFactory2
+				    git checkout master
 				    git pull
 				    mvn -version
 				    mvn clean test -DDevicename=${IDS}				    
 				'''
 				echo 'termina corriendo en la mac'
 			}else{			
-				bat "git checkout CIFactory2" 
+				bat "git checkout master" 
 				bat "git pull"
 				bat "mvn clean test -DDevicename=${IDS}"
 			}
